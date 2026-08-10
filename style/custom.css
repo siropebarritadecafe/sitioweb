@@ -1,0 +1,163 @@
+:root {
+    --matcha-green: #83a652;
+    --cream-bg: #fffbf2;
+    --soft-orange: #f2a65a;
+    --dark-text: #333333;
+}
+
+body {
+    background-color: var(--cream-bg);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dark-text);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita cualquier barra de scroll horizontal no deseada */
+}
+
+h1, h2, h3, .small-logo, .big-logo {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--matcha-green);
+}
+
+/* ========================================================
+   Barra de Navegación (Navbar)
+   ======================================================== */
+.custom-navbar {
+    background-color: rgba(255, 251, 242, 0); 
+    transition: background-color 0.1s;
+    padding: 15px 0;
+}
+
+.custom-navbar .nav-link {
+    color: var(--dark-text) !important;
+    font-weight: 600;
+}
+
+.custom-navbar .nav-link:hover, .custom-navbar .nav-link.active {
+    color: var(--matcha-green) !important;
+}
+
+.small-logo-container {
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 40px; 
+}
+
+.small-logo {
+    font-size: 1.5rem;
+    color: var(--matcha-green) !important;
+    text-decoration: none;
+    display: block;
+}
+
+/* ========================================================
+   Logos e Imágenes Principales
+   ======================================================== */
+.big-logo-row {
+    background-color: #f6eacc; 
+    min-height: 60vh;
+    padding-top: 60px; 
+}
+
+.big-logo {
+    font-size: 5rem;
+    margin: 0;
+}
+
+.small-logo-img {
+    height: 40px; 
+    width: auto;
+    display: block;
+}
+
+.big-logo-img {
+    max-height: 200px; 
+    width: auto;
+}
+
+@media (min-width: 768px) {
+    .big-logo-img {
+        max-height: 350px; 
+    }
+}
+
+/* ========================================================
+   Fondo pastel para el contenedor del carrusel (Inicio)
+   ======================================================== */
+.carrusel-contenedor {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carrusel-contenedor::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    right: -30px;
+    bottom: -30px;
+    
+    background-image: url('../img/background_orange.webp');
+    background-size: cover;
+    background-position: center;
+    
+    filter: blur(25px) saturate(100%);
+    opacity: 0.4; 
+    z-index: 0; 
+}
+
+.carrusel-contenido {
+    position: relative;
+    z-index: 1; 
+}
+
+/* ========================================================
+   Alturas y ajustes de las imágenes del carrusel
+   ======================================================== */
+#carruselSirope .carousel-inner {
+    height: 500px; 
+}
+
+#carruselSirope .carousel-item,
+#carruselSirope .carousel-item .d-block {
+    height: 100%;
+}
+
+#carruselSirope .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 15px; 
+}
+
+/* Responsivo para móviles */
+@media (max-width: 767px) {
+    #carruselSirope .carousel-inner { 
+        height: auto; 
+    }
+    #carruselSirope .carousel-item img {
+        height: 350px; 
+        border-radius: 15px 15px 0 0; 
+    }
+}
+
+/* ========================================================
+   Footer y Mapa Responsivo
+   ======================================================== */
+.footer-sirope {
+    background-color: var(--matcha-green);
+    color: #ffffff;
+}
+
+.footer-sirope h3 {
+    color: #ffffff !important; 
+}
+
+.map-container {
+    line-height: 0; 
+    border: 3px solid rgba(255, 255, 255, 0.2); 
+}

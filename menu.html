@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sirope | Menú</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="style/custom.css">
+    <link rel="stylesheet" href="style/menustyle.css">
+</head>
+
+<body>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar" style="background-color: rgba(255, 251, 242, 0.95); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <div class="container">
+            <div class="small-logo-container" style="padding-top: 0;">
+                <a class="navbar-brand p-0 d-flex align-items-center gap-2" href="index.html">
+                    <img src="img/logo_sirope_icono.webp" alt="Sirope" class="small-logo-img">
+                    <span class="small-logo fw-bold m-0">Sirope</span>
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sirope.html">Conócenos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="menu.html">Menú</a></li>
+                    <li class="nav-item"><a class="nav-link" href="temporada.html">Temporada</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor del Menú Interactivo -->
+    <div class="container" style="padding-top: 120px; padding-bottom: 100px;">
+        
+        <!-- Pista de Scroll: Esto nos da 400vh de espacio para "bajar" sin que la libreta se mueva -->
+        <div id="scroll-track">
+            
+            <div class="sticky-notebook">
+
+                <!-- ================= HOJA 1: HORARIO (Crema) ================= -->
+                <div class="menu-page bg-page-cream" id="page-1" style="z-index: 4;">
+                    <div class="ring-hole"></div>
+                    
+                    <div class="horario-circle">
+                        <h4>
+                            LUNES, MARTES,<br>
+                            JUEVES, VIERNES Y SÁBADO<br>
+                            <span style="font-size: 1.3rem;">4:00 - 9:30 PM</span><br><br>
+                            DOMINGO<br>
+                            <span style="font-size: 1.3rem;">1:00 - 6:00 PM</span><br><br>
+                            MIÉRCOLES<br>
+                            <span style="font-size: 1.3rem;">CERRADO</span>
+                        </h4>
+                    </div>
+                    
+                    <p class="text-center mt-4 fw-bold" style="font-size: 0.9rem;">@siropebarritadecafe</p>
+                </div>
+
+                <!-- ================= HOJA 2: CAFÉ (Amarilla) ================= -->
+                <div class="menu-page bg-page-yellow" id="page-2" style="z-index: 3;">
+                    <div class="ring-hole"></div>
+                    
+                    <h2>menú</h2>
+                    <h3>cafecito</h3>
+                    <p class="menu-item-desc mb-4 text-center">café de especialidad - tueste medio</p>
+                    
+                    <div class="d-flex align-items-end mb-1"><span class="menu-item-name">espresso</span><div class="menu-dots"></div><span class="menu-item-price">45</span></div>
+                    <p class="menu-item-desc mb-3">doble, acompañado de agua mineral</p>
+                    <div class="d-flex align-items-end mb-3"><span class="menu-item-name">americano <small>(10 oz)</small></span><div class="menu-dots"></div><span class="menu-item-price">50</span></div>
+                    <div class="d-flex align-items-end mb-3"><span class="menu-item-name">flat white <small>(6 oz)</small></span><div class="menu-dots"></div><span class="menu-item-price">55</span></div>
+                    <div class="d-flex align-items-end mb-3"><span class="menu-item-name">capuccino <small>(8 oz)</small></span><div class="menu-dots"></div><span class="menu-item-price">60</span></div>
+                    <div class="d-flex align-items-end mb-3"><span class="menu-item-name">latte <small>(10 oz)</small></span><div class="menu-dots"></div><span class="menu-item-price">65</span></div>
+                    <div class="d-flex align-items-end mb-1"><span class="menu-item-name">mocha</span><div class="menu-dots"></div><span class="menu-item-price">70</span></div>
+                    <p class="menu-item-desc mb-3">cafecito con chocolate</p>
+                    <div class="d-flex align-items-end mb-1"><span class="menu-item-name">dirty chai</span><div class="menu-dots"></div><span class="menu-item-price">80</span></div>
+                    <p class="menu-item-desc mb-3">chai con cafecito</p>
+                    <div class="d-flex align-items-end mb-1"><span class="menu-item-name">cold brew tonic</span><div class="menu-dots"></div><span class="menu-item-price">75</span></div>
+
+                    <!-- Pestaña asomándose -->
+                    <div class="menu-tab" style="color: var(--page-orange);">café</div>
+                </div>
+
+                <!-- ================= HOJA 3: SIN CAFÉ (Azul) ================= -->
+                <div class="menu-page bg-page-blue" id="page-3" style="z-index: 2;">
+                    <div class="ring-hole"></div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <h3>sin cafecito</h3>
+                            <div class="d-flex align-items-end mb-1 mt-3"><span class="menu-item-name">chocolate</span><div class="menu-dots"></div><span class="menu-item-price">60</span></div>
+                            <p class="menu-item-desc mb-3">oscuro o blanco</p>
+                            <div class="d-flex align-items-end mb-1"><span class="menu-item-name">tisana</span><div class="menu-dots"></div><span class="menu-item-price">60</span></div>
+                            <p class="menu-item-desc mb-3">natural o mineral</p>
+                            <div class="d-flex align-items-end mb-3"><span class="menu-item-name">chai</span><div class="menu-dots"></div><span class="menu-item-price">65</span></div>
+                            <div class="d-flex align-items-end mb-3"><span class="menu-item-name">taro</span><div class="menu-dots"></div><span class="menu-item-price">70</span></div>
+                            <div class="d-flex align-items-end mb-3"><span class="menu-item-name">matcha americano</span><div class="menu-dots"></div><span class="menu-item-price">78</span></div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h3>extras</h3>
+                            <div class="d-flex align-items-end mb-3 mt-3"><span class="menu-item-name">shot espresso extra</span><div class="menu-dots"></div><span class="menu-item-price">15</span></div>
+                            <div class="d-flex align-items-end mb-3"><span class="menu-item-name">shot matcha extra</span><div class="menu-dots"></div><span class="menu-item-price">30</span></div>
+                            <div class="d-flex align-items-end mb-1"><span class="menu-item-name">leche vegetal</span><div class="menu-dots"></div><span class="menu-item-price">15</span></div>
+                            <p class="menu-item-desc mb-3">avena, almendra, soya</p>
+                            <div class="d-flex align-items-end mb-1"><span class="menu-item-name">sirope</span><div class="menu-dots"></div><span class="menu-item-price">12</span></div>
+                            <p class="menu-item-desc mb-0">jarabes hechos en casa :)</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-tab" style="color: var(--page-yellow);">sin café</div>
+                </div>
+
+                <!-- ================= HOJA 4: DE LA CASA (Naranja) ================= -->
+                <div class="menu-page bg-page-orange" id="page-4" style="z-index: 1;">
+                    <div class="ring-hole"></div>
+                    
+                    <div class="row">
+                        <div class="col-12 text-center mb-4">
+                            <h2 class="text-white">menú</h2>
+                            <h3 class="text-white">de la casa</h3>
+                        </div>
+                        <div class="col-md-6 text-white">
+                            <div class="d-flex align-items-end mb-1"><span class="menu-item-name">salted honey latte</span><div class="menu-dots" style="border-color: rgba(255,255,255,0.4);"></div><span class="menu-item-price">75</span></div>
+                            <p class="menu-item-desc mb-3">miel de abeja y sal rosada</p>
+                            <div class="d-flex align-items-end mb-1"><span class="menu-item-name">lavanda latte/matcha</span><div class="menu-dots" style="border-color: rgba(255,255,255,0.4);"></div><span class="menu-item-price">85/90</span></div>
+                            <p class="menu-item-desc mb-3">cold foam de lavanda-miel</p>
+                        </div>
+                        <div class="col-md-6 text-white">
+                            <div class="d-flex align-items-end mb-1"><span class="menu-item-name">pistache latte/matcha</span><div class="menu-dots" style="border-color: rgba(255,255,255,0.4);"></div><span class="menu-item-price">85/95</span></div>
+                            <p class="menu-item-desc mb-3">cold foam de pistache</p>
+                            <div class="d-flex align-items-end mb-1"><span class="menu-item-name">tiramisú latte</span><div class="menu-dots" style="border-color: rgba(255,255,255,0.4);"></div><span class="menu-item-price">92</span></div>
+                            <p class="menu-item-desc mb-3">mascarpone y vainilla</p>
+                        </div>
+                    </div>
+
+                    <div class="menu-tab text-white">de la casa</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle y Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/menucode.js"></script>
+</body>
+</html>
