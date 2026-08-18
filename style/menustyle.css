@@ -12,7 +12,7 @@
 
 /* 1. Pista de scroll invisible */
 #scroll-track {
-    height: 400vh; /* Espacio exacto para poder bajar sin que la libreta se escape */
+    height: 400vh; /* Da el margen necesario para scrollear las 3 páginas */
     position: relative;
     width: 100%;
     max-width: 800px;
@@ -24,7 +24,7 @@
     position: sticky;
     top: 120px;
     height: 75vh;
-    perspective: 2500px; /* Habilita el efecto 3D */
+    perspective: 2500px; /* Profundidad del mundo 3D */
 }
 
 /* 3. Estructura maestra de las páginas (todas empalmadas) */
@@ -36,15 +36,15 @@
     
     border-radius: 5px 25px 25px 5px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.15), inset 15px 0 20px rgba(0,0,0,0.05);
-    transform-origin: top center; /* CRUCIAL: Asegura que la hoja se doble desde las argollas */
+    
+    /* El doblez ocurre desde la parte superior central */
+    transform-origin: top center; 
     backface-visibility: hidden;
-    overflow-y: auto;
-    overflow-x: hidden;
+    
+    /* FIX CRUCIAL: Se cambia a overflow: hidden para evitar la trampa de scroll */
+    overflow: hidden;
     padding: 3rem 2rem 6rem 2rem;
     color: var(--text-red);
-    
-    /* Esta transición suaviza el giro dictado por JavaScript */
-    transition: transform 0.1s linear, opacity 0.1s linear;
 }
 
 /* 4. Efecto de escalera (Pestañas asomándose) */
@@ -52,10 +52,6 @@
 #page-2 { height: 88%; }
 #page-3 { height: 94%; }
 #page-4 { height: 100%; }
-
-/* Ocultar scrollbar interna de las páginas */
-.menu-page::-webkit-scrollbar { width: 4px; }
-.menu-page::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
 
 /* ========================================================
    Detalles Estéticos de la Libreta
@@ -70,7 +66,7 @@
     height: 25px;
     background-color: var(--cream-bg); 
     border-radius: 50%;
-    border: 5px solid #c7a75c; /* Color latón */
+    border: 5px solid #c7a75c; /* Color latón/dorado */
     box-shadow: inset 0 3px 5px rgba(0,0,0,0.4), 0 2px 4px rgba(0,0,0,0.2);
     z-index: 10;
 }
@@ -96,7 +92,6 @@
    Tipografía y Acomodo Interno del Menú
    ======================================================== */
 
-/* Círculo de Horarios de la primera hoja */
 .horario-circle {
     background-color: var(--circle-blue);
     border-radius: 50%;

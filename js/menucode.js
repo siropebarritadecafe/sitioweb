@@ -2,45 +2,54 @@ document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('scroll-track');
     const pages = document.querySelectorAll('.menu-page');
     
-    // Si por alguna razón no encuentra el contenedor, detenemos el script para evitar errores
+    // Verificación de seguridad
     if (!track || pages.length === 0) return;
 
-    window.addEventListener('scroll', () => {
-        // Leemos a qué distancia está la pista de scroll desde el tope de la pantalla
+    // Pixeles exactos de scroll para dar vuelta a una hoja completa
+    const scrollPerSheet = 700; 
+
+    function updatePages() {
         const trackRect = track.getBoundingClientRect();
         
-        // 120 es el "top" donde nuestra libreta se queda pegada (sticky)
+        // Calculamos la distancia de scroll efectiva
         let scrollDistance = 120 - trackRect.top;
-        
-        // Si aún no hemos llegado a la libreta, mantenemos la distancia en 0
         if (scrollDistance < 0) scrollDistance = 0;
 
-        // Definimos cuántos pixeles exactos de scroll toma dar vuelta a UNA hoja.
-        const scrollPerSheet = 700;
-
         pages.forEach((page, index) => {
-            // La última hoja (la naranja de la casa) nunca se voltea
-            if (index === pages.length - 1) {
-                return;
-            }
+            // La última hoja (la naranja de la casa) se queda como base, nunca gira
+            if (index === pages.length - 1) return;
             
-            // Calculamos cuándo le toca empezar a girar a cada hoja
+            // Momentos de inicio y fin del giro para esta hoja en específico
             let startFlip = index * scrollPerSheet;
             let endFlip = startFlip + scrollPerSheet;
             
+            // Calculamos el progreso del 0 al 1 (0% al 100%)
             let progress = 0;
             if (scrollDistance > endFlip) {
-                progress = 1; // Ya dio la vuelta completa
+                progress = 1; 
             } else if (scrollDistance > startFlip) {
-                progress = (scrollDistance - startFlip) / scrollPerSheet; // Está en medio del giro
+                progress = (scrollDistance - startFlip) / scrollPerSheet; 
             }
             
-            // Rotamos la hoja hasta -130 grados (hacia arriba) para que desaparezca completamente de la vista
+            // Rotamos hasta -130 grados para que se doble hacia arriba
             let angle = progress * -130;
-            page.style.transform = `rotateX(${angle}deg)`;
             
-            // Le bajamos la opacidad poco a poco para dar el efecto de sombra/profundidad al levantarse
-            page.style.opacity = 1 - (progress * 0.8);
+            // El translateZ(10px, 9px...) fuerza al navegador a respetar qué hoja va encima en el mundo 3D
+            let zOffset = 10 - index; 
+            
+            // Aplicamos la rotación
+            page.style.transform = `translateZ(${zOffset}px) rotateX(${angle}deg)`;
+            
+            // Efecto de sombra: se oscurece ligeramente al levantarse
+            page.style.opacity = 1 - (progress * 0.4);
         });
+    }
+
+    // Usamos requestAnimationFrame para que la animación fluya a los Hz de la pantalla del usuario
+    window.addEventListener('scroll', () => {
+        window.requestAnimationFrame(updatePages);
     });
+    
+    // Forzamos un cálculo inicial por si el usuario recarga la página a la mitad
+    updatePages();
 });
